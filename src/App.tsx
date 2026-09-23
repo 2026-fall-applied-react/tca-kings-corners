@@ -5,7 +5,7 @@ import {
   Route,
   Router
 } from 'react-router'
-const Home = () => <h1>Home</h1>;
+import {Home} from './Home'
 
 const Setup = () => <h1>Setup</h1>;
 
