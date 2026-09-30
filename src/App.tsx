@@ -54,7 +54,20 @@ const dummyGameResults: GameResult[] = [
         winner: "Bryson",
         players: [
             "Bryson",
-            "Suzie"],
+            "Tom"],
+        // kingsPlayed: [
+        //     "Bryson",
+        //     "Bryson",
+        //     "John"
+        // ]
+
+    },
+        {
+        winner: "Tom",
+        players: [
+            "Suzie",
+            "Tom",
+            "John"],
         // kingsPlayed: [
         //     "Bryson",
         //     "Bryson",
