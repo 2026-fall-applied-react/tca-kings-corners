@@ -1,6 +1,15 @@
 import { useNavigate } from "react-router";
+import type { LeaderboardEntry } from "./GameResults";
 
-export const Home = () => {
+type HomeProps = {
+    leaderboard: LeaderboardEntry[];
+};
+
+export const Home: React.FC<HomeProps> = ({
+    leaderboard
+}) => {
+
+    console.log(leaderboard)
 
     const nav = useNavigate();
 

@@ -8,7 +8,8 @@ import {
 import {Home} from './Home'
 import {Setup} from './Setup'
 import {Play} from './Play'
-import type {GameResult} from './GameResults'  
+import {getLeaderboard, type GameResult} from './GameResults'  
+import { useState } from 'react'
 
 
 const dummyGameResults: GameResult[] = [
@@ -68,6 +69,24 @@ const dummyGameResults: GameResult[] = [
 
 const App = () => {
 
+  //
+  // React Hooks, useState, useEffect, use*
+  //
+
+  
+  // const [gameResults, setGameResults] = useState<GameResult[]>([]);
+  const [gameResults, setGameResults] = useState<GameResult[]>(dummyGameResults);
+
+
+  //
+  // Derived or calculated and helper funcs
+
+
+
+
+  //
+  // Return JSX
+  //
   return (
         <div className='p-3'>
           <HashRouter>
@@ -75,7 +94,10 @@ const App = () => {
               <Route 
                 path='/'
                 element={
-                  <Home />
+                  <Home 
+                  leaderboard={
+                    getLeaderboard(gameResults)
+                  }/>
                 } />
 
               <Route 
