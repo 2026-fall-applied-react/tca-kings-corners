@@ -5,7 +5,7 @@ import {
   Route,
   Router
 } from 'react-router'
-import {Home} from './Home'
+import {APP_TITLE, Home} from './Home'
 import {Setup} from './Setup'
 import {Play} from './Play'
 import {getLeaderboard, type GameResult} from './GameResults'  
@@ -90,6 +90,7 @@ const App = () => {
   // const [gameResults, setGameResults] = useState<GameResult[]>([]);
   const [gameResults, setGameResults] = useState<GameResult[]>(dummyGameResults);
 
+  const [title, setTitle] = useState("King's Corner Companion123");
 
   //
   // Derived or calculated and helper funcs
@@ -107,6 +108,12 @@ const App = () => {
   // Return JSX
   //
   return (
+    <>
+      <div className="navbar bg-base-100 shadow-sm">
+        <a className="font-bold text-xl">{title}</a>
+      </div>    
+
+    
         <div className='p-3'>
           <HashRouter>
             <Routes>
@@ -116,13 +123,19 @@ const App = () => {
                   <Home 
                   leaderboard={
                     getLeaderboard(gameResults)
+                  }
+                  setTitle={
+                    setTitle
                   }/>
                 } />
 
               <Route 
                 path='/setup'
                 element={
-                  <Setup />
+                  <Setup 
+                  setTitle={
+                    setTitle
+                  }/>
                 } />
 
               <Route 
@@ -131,13 +144,17 @@ const App = () => {
                   <Play
                   addNewGameResult={
                     addNewGameResult
-                  } />
+                  } 
+                  setTitle={
+                    setTitle
+                  }/>
                 } />
 
 
             </Routes>
           </HashRouter>
         </div>
+    </>
 
   )
 }

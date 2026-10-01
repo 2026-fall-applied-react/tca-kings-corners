@@ -1,19 +1,27 @@
 import { useNavigate } from "react-router";
 import type { LeaderboardEntry } from "./GameResults";
+import { useEffect } from "react";
+
+export const APP_TITLE = "King's Corners Companion"
 
 type HomeProps = {
     leaderboard: LeaderboardEntry[];
+    setTitle: (title: string) => void;
 };
 
 export const Home: React.FC<HomeProps> = ({
-    leaderboard
+    leaderboard,
+    setTitle
 }) => {
 
     //
     // react hooks
     //
     const nav = useNavigate();
-
+    useEffect(
+        () => setTitle(APP_TITLE),
+        []
+    )
 
     //
     // calculated or derived state
@@ -23,10 +31,6 @@ export const Home: React.FC<HomeProps> = ({
     // return jsx
     return (
         <div>
-            <h1>
-                Home
-            </h1>
-
             <button
             className="btn btn-soft btn-lg mt-3"
             onClick={
