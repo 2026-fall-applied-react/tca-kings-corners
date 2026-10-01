@@ -30,6 +30,11 @@ export const Play: React.FC<PlayProps> = ({
                             "Hermione",
                             "Harry",
                             "Ron"
+                        ],
+                        kingsPlayed: [
+                            "Hermione",
+                            "Hermione",
+                            "Harry"
                         ]
                     })
                     nav(-2);

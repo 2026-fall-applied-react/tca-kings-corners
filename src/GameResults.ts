@@ -4,7 +4,7 @@
 export type GameResult = {
     winner: string;
     players: string[];
-    // kingsPlayed: string[]; // First, Second, Third, Fourth (If played). Can be 0 played
+    kingsPlayed: string[]; // First, Second, Third, Fourth (If played). Can be 0 played
 };
 
 export type LeaderboardEntry = {
@@ -12,6 +12,7 @@ export type LeaderboardEntry = {
     wins: number;
     losses: number;
     ratio: number;
+    kingsPlayed: number;
 }
 
 //
@@ -54,13 +55,22 @@ const getLeaderboardEntry = (
             x => x.winner === player
         ).length;
 
+        const totalNumberOfKingsPlayed = games.reduce(
+            (sum, game) => {
+                const kingsThisGame = game.kingsPlayed.filter( p => p === player).length;
+
+                return sum + kingsThisGame;
+            }, 0
+        )
+
         return {
             player: player,
             wins: numberOfPlayerWins,
             losses: numberOfPlayerGames - numberOfPlayerWins,
             ratio: numberOfPlayerGames > 0
             ? numberOfPlayerWins/numberOfPlayerGames
-            : 0
+            : 0,
+            kingsPlayed: totalNumberOfKingsPlayed
         };
 }
 

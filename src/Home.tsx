@@ -52,6 +52,7 @@ export const Home: React.FC<HomeProps> = ({
                             <th>Wins</th>
                             <th>Losses</th>
                             <th>Ratio</th>
+                            <th>Total Kings Played</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -65,6 +66,7 @@ export const Home: React.FC<HomeProps> = ({
                                             <td>{x.wins}</td>
                                             <td>{x.losses}</td>
                                             <td>{x.ratio.toFixed(3)}</td>
+                                            <td>{x.kingsPlayed}</td>
                                         </tr>
                                     )
                                 )

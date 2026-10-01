@@ -19,11 +19,11 @@ const dummyGameResults: GameResult[] = [
             "Tom",
             "Suzie",
             "John"],
-        // kingsPlayed: [
-        //     "Bryson", // 1st played king
-        //     "Bryson", // 2nd played king
-        //     "John"    // 3rd played king
-        // ]
+        kingsPlayed: [
+            "Bryson", // 1st played king
+            "Bryson", // 2nd played king
+            "John"    // 3rd played king
+        ]
 
     },
     {
@@ -32,11 +32,11 @@ const dummyGameResults: GameResult[] = [
             "Zach",
             "Bryson", 
             "Tom",],
-        // kingsPlayed: [
-        //     "Bryson",
-        //     "Bryson",
-        //     "John"
-        // ]
+        kingsPlayed: [
+            "Bryson",
+            "Bryson",
+            "John"
+        ]
     },
     {
         winner: "Bryson",
@@ -44,22 +44,22 @@ const dummyGameResults: GameResult[] = [
             "Bryson", 
             "Tom",
             "Suzie",],
-        // kingsPlayed: [
-        //     "Bryson",
-        //     "Bryson",
-        //     "John"
-        // ]
+        kingsPlayed: [
+            "Tom",
+            "Bryson",
+            "John"
+        ]
     },
     {
         winner: "Bryson",
         players: [
             "Bryson",
             "Tom"],
-        // kingsPlayed: [
-        //     "Bryson",
-        //     "Bryson",
-        //     "John"
-        // ]
+        kingsPlayed: [
+            "Bryson",
+            "Bryson",
+            "Suzie"
+        ]
 
     },
         {
@@ -68,11 +68,11 @@ const dummyGameResults: GameResult[] = [
             "Suzie",
             "Tom",
             "John"],
-        // kingsPlayed: [
-        //     "Bryson",
-        //     "Bryson",
-        //     "John"
-        // ]
+        kingsPlayed: [
+            "Tom",
+            "Bryson",
+            "John"
+        ]
 
     },
     
