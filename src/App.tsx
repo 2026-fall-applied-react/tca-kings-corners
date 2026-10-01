@@ -93,7 +93,13 @@ const App = () => {
 
   //
   // Derived or calculated and helper funcs
-
+  //
+  const addNewGameResult = (newGameResult: GameResult) => setGameResults(
+    [
+      ...gameResults,
+      newGameResult
+    ]
+  );
 
 
 
@@ -122,7 +128,10 @@ const App = () => {
               <Route 
                 path='/play'
                 element={
-                  <Play />
+                  <Play
+                  addNewGameResult={
+                    addNewGameResult
+                  } />
                 } />
 
 
