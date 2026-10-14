@@ -43,37 +43,48 @@ export const Home: React.FC<HomeProps> = ({
                     <h2 className="card-title ml-3 mt-3">
                         Leaderboard
                     </h2>
+                    {
+                        leaderboard.length === 0
+                        ? (
+                            <p className="ml-3 mb-5">
+                                Setup & play a game to start your leaderboard!
+                            </p>
+                        )
+                        : (
+                        <div className="overflow-x-auto">
+                            <table className="table table-zebra">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>W</th>
+                                    <th>L</th>
+                                    <th>Ratio</th>
+                                    <th>Total Kings Played</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        leaderboard.map(
+                                            x => (
+                                                <tr
+                                                    key={x.player}
+                                                    >
+                                                    <th>{x.player}</th>
+                                                    <td>{x.wins}</td>
+                                                    <td>{x.losses}</td>
+                                                    <td>{x.ratio.toFixed(3)}</td>
+                                                    <td>{x.kingsPlayed}</td>
+                                                </tr>
+                                            )
+                                        )
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        )
+                    }
 
-                    <div className="overflow-x-auto">
-                    <table className="table table-zebra">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Wins</th>
-                            <th>Losses</th>
-                            <th>Ratio</th>
-                            <th>Total Kings Played</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                leaderboard.map(
-                                    x => (
-                                        <tr
-                                            key={x.player}
-                                            >
-                                            <th>{x.player}</th>
-                                            <td>{x.wins}</td>
-                                            <td>{x.losses}</td>
-                                            <td>{x.ratio.toFixed(3)}</td>
-                                            <td>{x.kingsPlayed}</td>
-                                        </tr>
-                                    )
-                                )
-                            }
-                        </tbody>
-                    </table>
-                    </div>
+
 
                 </div>
             </div>
