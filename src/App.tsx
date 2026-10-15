@@ -8,7 +8,7 @@ import {
 import {APP_TITLE, Home} from './Home'
 import {Setup} from './Setup'
 import {Play} from './Play'
-import {getGeneralFacts, getLeaderboard, type GameResult} from './GameResults'  
+import {getGeneralFacts, getLeaderboard, getPreviousPlayers, type GameResult} from './GameResults'  
 import { useState } from 'react'
 
 
@@ -81,7 +81,9 @@ const App = () => {
   // const [gameResults, setGameResults] = useState<GameResult[]>([]);
   const [gameResults, setGameResults] = useState<GameResult[]>(dummyGameResults);
 
-  const [title, setTitle] = useState("King's Corner Companion123");
+  const [title, setTitle] = useState(APP_TITLE);
+
+  const [currentPlayers, setCurrentPlayers] = useState<string[]>([])
 
   //
   // Derived or calculated and helper funcs
@@ -128,7 +130,11 @@ const App = () => {
                   <Setup 
                   setTitle={
                     setTitle
-                  }/>
+                  }
+                  previousPlayers={
+                    getPreviousPlayers(gameResults)
+                  }
+                  setCurrentPlayers={setCurrentPlayers}/>
                 } />
 
               <Route 
@@ -140,7 +146,9 @@ const App = () => {
                   } 
                   setTitle={
                     setTitle
-                  }/>
+                  }
+                  currentPlayers={currentPlayers}
+                  />
                 } />
 
 
