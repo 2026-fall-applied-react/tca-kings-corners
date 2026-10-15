@@ -1,16 +1,18 @@
 import { useNavigate } from "react-router";
-import type { LeaderboardEntry } from "./GameResults";
+import type {  GeneralFacts, LeaderboardEntry } from "./GameResults";
 import { useEffect } from "react";
 
 export const APP_TITLE = "King's Corners Companion"
 
 type HomeProps = {
     leaderboard: LeaderboardEntry[];
+    generalFacts: GeneralFacts
     setTitle: (title: string) => void;
 };
 
 export const Home: React.FC<HomeProps> = ({
     leaderboard,
+    generalFacts,
     setTitle
 }) => {
 
@@ -88,6 +90,38 @@ export const Home: React.FC<HomeProps> = ({
 
                 </div>
             </div>
+
+            <div className="card w-full bg-base-100 card-md shadow-lg my-5">
+                <div className="card-body p-0">
+                    <h2 className="card-title ml-3 mt-3">
+                        General
+                    </h2>
+                        <div className="overflow-x-auto">
+                            <table className="table table-zebra">
+                                <tbody>
+                                    <tr>
+                                        <td>Last Played</td>
+                                        <td>{generalFacts.lastPlayed}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Games Played</td>
+                                        <td>{generalFacts.totalGames}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shortest Game</td>
+                                        <td>{generalFacts.shortestGame}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Longest Game</td>
+                                        <td>{generalFacts.longestGame}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                </div>
+            </div>
+            
         </div>
     );
 };

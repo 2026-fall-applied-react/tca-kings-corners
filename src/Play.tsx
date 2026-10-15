@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 import type { GameResult } from "./GameResults";
 import type React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 type PlayProps = {
     addNewGameResult:(result: GameResult) => void;
@@ -13,6 +13,10 @@ export const Play: React.FC<PlayProps> = ({
     setTitle
 }) => {
 
+
+    const [startTimeStamp] = useState(
+        new Date().toISOString()
+    )
     const nav = useNavigate();
     useEffect(
             () => setTitle("Play"),
@@ -35,7 +39,9 @@ export const Play: React.FC<PlayProps> = ({
                             "Hermione",
                             "Hermione",
                             "Harry"
-                        ]
+                        ],
+                        start: startTimeStamp,
+                        end: new Date().toISOString()
                     })
                     nav(-2);
                 }

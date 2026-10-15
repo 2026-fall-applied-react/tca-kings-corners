@@ -8,7 +8,7 @@ import {
 import {APP_TITLE, Home} from './Home'
 import {Setup} from './Setup'
 import {Play} from './Play'
-import {getLeaderboard, type GameResult} from './GameResults'  
+import {getGeneralFacts, getLeaderboard, type GameResult} from './GameResults'  
 import { useState } from 'react'
 
 
@@ -23,10 +23,10 @@ const dummyGameResults: GameResult[] = [
             "Bryson", // 1st played king
             "Bryson", // 2nd played king
             "John"    // 3rd played king
-        ]
-
-    },
-    {
+        ],
+        start: "2026-10-11T23:45:37.161Z",
+        end: "2026-10-11T23:55:52.161Z",
+    },{
         winner: "Bryson",
         players: [
             "Zach",
@@ -36,47 +36,38 @@ const dummyGameResults: GameResult[] = [
             "Bryson",
             "Bryson",
             "John"
-        ]
-    },
-    {
+        ],
+        start: "2026-10-11T23:45:37.161Z",
+        end: "2026-10-11T23:55:52.161Z",
+    },{
         winner: "Bryson",
         players: [
             "Bryson", 
             "Tom",
             "Suzie",],
         kingsPlayed: [
-            "Tom",
+            "Bryson",
             "Bryson",
             "John"
-        ]
-    },
-    {
+        ],
+        start: "2026-10-11T23:45:37.161Z",
+        end: "2026-10-11T23:49:32.161Z",
+    },{
         winner: "Bryson",
         players: [
             "Bryson",
-            "Tom"],
+            "Suzie"],
         kingsPlayed: [
             "Bryson",
-            "Bryson",
-            "Suzie"
-        ]
-
-    },
-        {
-        winner: "Tom",
-        players: [
-            "Suzie",
-            "Tom",
-            "John"],
-        kingsPlayed: [
-            "Tom",
             "Bryson",
             "John"
-        ]
-
+        ],
+        start: "2026-10-11T23:45:37.161Z",
+        end: "2026-10-11T23:55:52.161Z",
     },
-    
-]
+];
+
+
 
 
 
@@ -126,7 +117,9 @@ const App = () => {
                   }
                   setTitle={
                     setTitle
-                  }/>
+                  }
+                  generalFacts={getGeneralFacts(gameResults)}
+                  />
                 } />
 
               <Route 
