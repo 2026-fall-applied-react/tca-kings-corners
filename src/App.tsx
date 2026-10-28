@@ -26,6 +26,7 @@ const dummyGameResults: GameResult[] = [
         ],
         start: "2026-10-11T23:45:37.161Z",
         end: "2026-10-11T23:55:52.161Z",
+        turnCount: 12,
     },{
         winner: "Bryson",
         players: [
@@ -39,6 +40,7 @@ const dummyGameResults: GameResult[] = [
         ],
         start: "2026-10-11T23:45:37.161Z",
         end: "2026-10-11T23:55:52.161Z",
+        turnCount: 9,
     },{
         winner: "Bryson",
         players: [
@@ -52,6 +54,7 @@ const dummyGameResults: GameResult[] = [
         ],
         start: "2026-10-11T23:45:37.161Z",
         end: "2026-10-11T23:49:32.161Z",
+        turnCount: 8,
     },{
         winner: "Bryson",
         players: [
@@ -64,6 +67,7 @@ const dummyGameResults: GameResult[] = [
         ],
         start: "2026-10-11T23:45:37.161Z",
         end: "2026-10-11T23:55:52.161Z",
+        turnCount: 13,
     },
 ];
 
