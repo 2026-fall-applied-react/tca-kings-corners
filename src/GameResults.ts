@@ -20,7 +20,8 @@ export type GameResult = {
     players: string[];
     kingsPlayed: string[]; // First, Second, Third, Fourth (If played). Can be 0 played
     start: string;
-    end: string
+    end: string;
+    turnCount: number;
 };
 
 export type LeaderboardEntry = {
@@ -37,6 +38,7 @@ export type GeneralFacts = {
     // totalKingsPlayed: number;
     shortestGame: string;
     longestGame: string;
+    avgTurns: string;
 };
 
 //
@@ -71,7 +73,8 @@ export const getGeneralFacts  = (games: GameResult[]):GeneralFacts => {
             lastPlayed: "N/A",
             totalGames: 0,
             shortestGame: "N/A",
-            longestGame: "N/A"
+            longestGame: "N/A",
+            avgTurns: "N/A",
         }
         );
     }
@@ -90,13 +93,24 @@ export const getGeneralFacts  = (games: GameResult[]):GeneralFacts => {
         x => Date.parse(x.end) - Date.parse(x.start)
     );
 
+    const sumOfTurnCounts = games
+        .map(
+            x => x.turnCount,
+        )
+        .reduce(
+            (acc, cur) => acc + cur,
+            0,
+        )
+    ;
+
 
     return (
         {
             lastPlayed: `${formatLastPlayed(mostRecentGameInMs)} days ago `,
             totalGames: games.length,
             shortestGame: formatGameDuration(Math.min(...gameDurationsInMS)),
-            longestGame: formatGameDuration(Math.max(...gameDurationsInMS))
+            longestGame: formatGameDuration(Math.max(...gameDurationsInMS)),
+            avgTurns: (sumOfTurnCounts / games.length).toFixed(2),
         }
         );
 }
